@@ -1,15 +1,27 @@
 `include "swap.v"
 module testbench;
-
-    reg x = 0,clk = 0,rst = 0;
+    reg ck = 0, rst = 0, w = 0;
     wire done;
-    swap sw(x,clk,rst,done);
 
-always #1 clk <= ~clk;
-always #2 x <= ~x;
+    wire [5:0] barramento;
+
+swap s1(barramento,ck,rst,w,done);
+
+    
+
+always #2 ck <= ~ck;
+
+
 initial begin
-    $dumpvars;
-    #500;
+   $dumpvars;
+    rst <= 1;
+    #10;
+    rst <= 0;
+    #10;
+    w <= 1;
+    #4;
+    w <= 0;
+    # 20;
     $finish;
 
 end
