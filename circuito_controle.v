@@ -8,8 +8,8 @@ module circuito_controle(x,clk,rst,c1,c2,c3,h1,h2,h3,done);
 	//Codificaçao dos estados;
 	parameter a = 2'b00,
 	          b = 2'b01,
-				 c = 2'b10,
-				 d = 2'b11;
+              c = 2'b10,
+              d = 2'b11;
 	//Inicialização da maquina
 	initial begin
 		state <= a;
